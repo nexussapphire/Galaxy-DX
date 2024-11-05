@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cckvf44q6a62v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b62hi"]
+size = Vector2(2, 10)
+
+[node name="projectile_default" type="RigidBody2D"]
+gravity_scale = 0.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 5)
+shape = SubResource("RectangleShape2D_b62hi")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 0, 10, 3, 10, 3, 0)
