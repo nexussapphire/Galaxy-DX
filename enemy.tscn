@@ -8,9 +8,13 @@
 size = Vector2(54, 46)
 
 [node name="Enemy" type="RigidBody2D"]
+collision_layer = 5
+collision_mask = 0
 gravity_scale = 0.0
+can_sleep = false
 script = ExtResource("1_0y0y5")
-projectile = ExtResource("2_sovip")
+state_machine = 3
+missile_entity = ExtResource("2_sovip")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
@@ -19,3 +23,8 @@ texture = ExtResource("1_pw8pf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_32gkl")
+
+[node name="fight timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="fight timer" to="." method="_on_timer_timeout"]

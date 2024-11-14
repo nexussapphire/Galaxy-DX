@@ -7,9 +7,11 @@ extends CharacterBody2D
 @export var projectile : PackedScene
 const window_size = Vector2(540,720)
 
+
 func _ready() -> void:
 	position = Vector2(window_size.x / 2, window_size.y - y_position)
 	
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("shoot"):
 		if aval_shot > 0:
@@ -27,6 +29,7 @@ func _physics_process(_delta: float) -> void:
 		
 	position = position.clamp(vpad, window_size - vpad)
 	move_and_slide()
+
 	
 func create_bullet():
 	var shot = projectile.instantiate()
@@ -35,6 +38,7 @@ func create_bullet():
 	shot.pproj_left_screen.connect(_on_pproj_left_screen)
 	print(shot.linear_velocity)
 	
+
 func _on_pproj_left_screen():
 	aval_shot += 1
 	print("Bye")
